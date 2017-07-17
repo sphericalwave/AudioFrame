@@ -16,6 +16,8 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         imageView.layer.cornerRadius = 10.0
         imageView.clipsToBounds = true
+        imageView.layer
+        
 
         // Do any additional setup after loading the view.
     }

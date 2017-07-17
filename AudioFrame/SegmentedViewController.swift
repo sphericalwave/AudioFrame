@@ -13,7 +13,9 @@ class SegmentedViewController: UIViewController {
     @IBOutlet weak var containerA: UIView!
     @IBOutlet weak var containerB: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-
+    @IBOutlet weak var randomBar: UIBarButtonItem!
+    @IBOutlet weak var loopButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,20 +30,23 @@ class SegmentedViewController: UIViewController {
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            UIView.animate(withDuration: 0.5, animations: {
-                self.containerA.alpha = 0
-                self.containerB.alpha = 1
-            })
-            //self.showSwitch()
-            
-            
-        case 1:
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.7, animations: {
                 self.containerA.alpha = 1
                 self.containerB.alpha = 0
             })
-            //self.showCycle()
+            //self.showSwitch()
+            self.randomBar.isEnabled = true
+            self.loopButton.isEnabled = true
             
+        case 1:
+            UIView.animate(withDuration: 0.7, animations: {
+                self.containerA.alpha = 0
+                self.containerB.alpha = 1
+                
+            })
+            //self.showCycle()
+            self.randomBar.isEnabled = false
+            self.loopButton.isEnabled = false
         default:
             print("Default Case")
         }
